@@ -61,6 +61,6 @@ public class HomeTest {
 	@After
 	public void sair() throws Exception {
 		Thread.sleep(5000);
-		//this.driver.close();
+		this.driver.close();
 	}
 }
