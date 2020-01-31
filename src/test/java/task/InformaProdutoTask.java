@@ -16,7 +16,7 @@ public class InformaProdutoTask {
 		this.informaProdutoAppObject = new InformaProdutoAppObject(driver);
 	}
 	
-	public void adicionaCarrinho() throws InterruptedException {
+	public void adicionarCarrinho() throws InterruptedException {
 //		WaitElementFw.visibilityOf(driver, informaProdutoAppObject.getCompartilharFacebook());
 		informaProdutoAppObject.getQuantidadeFieldText().clear();
 		informaProdutoAppObject.getQuantidadeFieldText().sendKeys("2");

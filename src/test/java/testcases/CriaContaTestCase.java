@@ -31,7 +31,7 @@ public class CriaContaTestCase extends BaseTestFw {
 	public void criarConta() throws InterruptedException {
 		homeTask.login();
 		authenticationTask.criarConta();
-		personalInformationTask.informarDados();
+		personalInformationTask.preenderDados();
 	}
 	
 }

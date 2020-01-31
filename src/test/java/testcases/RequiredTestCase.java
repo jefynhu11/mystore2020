@@ -24,14 +24,14 @@ public class RequiredTestCase extends BaseTestFw {
 
 	@After
 	public void tearDown() {
-		driver.quit();
+//		driver.quit();
 	}
 	
 	@Test
-	public void requiredConta() throws InterruptedException {
+	public void requiredConta() {
 		homeTask.login();
 		authenticationTask.criarConta();
-		personalInformationTask.informarDados();
+		personalInformationTask.validarDados();
 	}
 	
 }

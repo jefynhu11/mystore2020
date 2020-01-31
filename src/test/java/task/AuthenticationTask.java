@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import appobjetcs.AuthenticationAppObject;
 import framework.utils.WaitElementFw;
-import gerar.GerarGeral;
+import gerar.GeraGeral;
 
 public class AuthenticationTask {
 
@@ -17,10 +17,9 @@ public class AuthenticationTask {
 		this.AuthenticationApp = new AuthenticationAppObject(driver);
 	}
 	
-	public void criarConta() throws InterruptedException {
+	public void criarConta() {
 		WaitElementFw.visibilityOfElementLocated(driver, By.id("email_create"));
-		AuthenticationApp.getEmailCreateFieldText().sendKeys(GerarGeral.generatorLetraMinuscula(10)+ "@teste.com");
-		Thread.sleep(3000);
+		AuthenticationApp.getEmailCreateFieldText().sendKeys(GeraGeral.generatorLetraMinuscula(10)+ "@teste.com");
 		AuthenticationApp.getCreateAccoutButton().click();
 	}
 	

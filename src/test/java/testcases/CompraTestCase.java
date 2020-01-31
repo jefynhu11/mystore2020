@@ -29,7 +29,7 @@ public class CompraTestCase extends BaseTestFw{
 	public void test() throws InterruptedException {
 		homeTask.obterProduto();
 		Thread.sleep(2000);
-		informaProdutoTask.adicionaCarrinho();
+		informaProdutoTask.adicionarCarrinho();
 		Thread.sleep(2000);
 		
 //		String text = informaProdutoTask.adicionaCarrinho();
