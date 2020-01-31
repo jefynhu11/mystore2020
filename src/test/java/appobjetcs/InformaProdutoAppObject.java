@@ -25,6 +25,18 @@ public class InformaProdutoAppObject {
 		return driver.findElement(By.cssSelector("p[id='quantity_wanted_p'] > input"));
 	}
 	
+	public WebElement getCorProdutoButton() {
+		return driver.findElement(By.id("color_8"));
+	}
+	
+	public WebElement getAddToCartButton() {
+		return driver.findElement(By.name("Submit"));
+	}
+	
+	public WebElement getProceedToCheckoutButton() {
+		return driver.findElement(By.cssSelector("a.button-medium"));
+	}
+	
 	public WebElement getCompartilharFacebook() {
 		return driver.findElement(By.cssSelector("p.socialsharing_product > button.btn-facebook"));
 	}

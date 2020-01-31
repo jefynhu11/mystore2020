@@ -16,14 +16,15 @@ public class InformaProdutoTask {
 		this.informaProdutoAppObject = new InformaProdutoAppObject(driver);
 	}
 	
-	public void adicionaCarrinho() {
-//		informaProdutoAppObject.getSearchFieldText().sendKeys("lol");
-//		informaProdutoAppObject.getQuantidadeFieldText().click();
+	public void adicionaCarrinho() throws InterruptedException {
 //		WaitElementFw.visibilityOf(driver, informaProdutoAppObject.getCompartilharFacebook());
-//		informaProdutoAppObject.getCompartilharFacebook().click();
-//		informaProdutoAppObject.getQuantidadeFieldText().click();
 		informaProdutoAppObject.getQuantidadeFieldText().clear();
 		informaProdutoAppObject.getQuantidadeFieldText().sendKeys("2");
+		informaProdutoAppObject.getCorProdutoButton().click();
+		informaProdutoAppObject.getAddToCartButton().click();
+//		Thread.sleep(2000);
+		WaitElementFw.visibilityOf(driver, informaProdutoAppObject.getProceedToCheckoutButton());
+		informaProdutoAppObject.getProceedToCheckoutButton().click();
 	}
 
 }

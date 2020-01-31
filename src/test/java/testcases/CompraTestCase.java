@@ -9,7 +9,7 @@ import framework.utils.BaseTestFw;
 import task.HomeTask;
 import task.InformaProdutoTask;
 
-public class TestCase extends BaseTestFw{
+public class CompraTestCase extends BaseTestFw{
 
 	private WebDriver driver = getDriver();
 	private HomeTask homeTask = new HomeTask(driver);
@@ -27,11 +27,11 @@ public class TestCase extends BaseTestFw{
 	
 	@Test
 	public void test() throws InterruptedException {
-		homeTask.login();
-		Thread.sleep(3000);
-//		homeTask.obterProduto();
-//		informaProdutoTask.adicionaCarrinho();
-//		Thread.sleep(5000);
+		homeTask.obterProduto();
+		Thread.sleep(2000);
+		informaProdutoTask.adicionaCarrinho();
+		Thread.sleep(2000);
+		
 //		String text = informaProdutoTask.adicionaCarrinho();
 //		System.out.println(text);
 	}

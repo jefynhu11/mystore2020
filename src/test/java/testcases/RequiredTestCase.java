@@ -6,11 +6,11 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import framework.utils.BaseTestFw;
+import task.AuthenticationTask;
 import task.HomeTask;
 import task.PersonalInformationTask;
-import task.AuthenticationTask;
 
-public class CriaContaTestCase extends BaseTestFw {
+public class RequiredTestCase extends BaseTestFw {
 
 	private WebDriver driver = getDriver();
 	private HomeTask homeTask = new HomeTask(driver);
@@ -28,7 +28,7 @@ public class CriaContaTestCase extends BaseTestFw {
 	}
 	
 	@Test
-	public void criarConta() throws InterruptedException {
+	public void requiredConta() throws InterruptedException {
 		homeTask.login();
 		authenticationTask.criarConta();
 		personalInformationTask.informarDados();

@@ -12,9 +12,6 @@ public class HomeAppObject {
 		this.driver = driver;
 	}
 	
-	public WebElement getObterProdutoButton() {
-		return driver.findElement(By.cssSelector("#homefeatured li:nth-child(2) div.left-block"));
-	}
 	
 	public WebElement getSearchProdutoFieldText() {
 		return driver.findElement(By.id("search_query_top"));
@@ -24,4 +21,7 @@ public class HomeAppObject {
 		return driver.findElement(By.cssSelector("a.login"));
 	}
 	
+	public WebElement getObterProdutoButton() {
+		return driver.findElement(By.cssSelector("#homefeatured li:nth-child(2) div.left-block"));
+	}
 }
