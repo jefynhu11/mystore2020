@@ -25,8 +25,8 @@ public class AuthenticationTask {
 	
 	public void existirConta() {
 		WaitElementFw.visibilityOfElementLocated(driver, By.id("email"));
-		AuthenticationApp.getEmailFieldText().sendKeys("teste@teste.com");
-		AuthenticationApp.getPasswordFieldText().sendKeys("teste");
+		AuthenticationApp.getEmailFieldText().sendKeys("testes@testes.com");
+		AuthenticationApp.getPasswordFieldText().sendKeys("testes");
 		AuthenticationApp.getSignInButton().click();
 	}
 }

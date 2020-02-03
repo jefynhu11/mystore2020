@@ -16,13 +16,12 @@ public class InformaProdutoTask {
 		this.informaProdutoAppObject = new InformaProdutoAppObject(driver);
 	}
 	
-	public void adicionarCarrinho() throws InterruptedException {
-//		WaitElementFw.visibilityOf(driver, informaProdutoAppObject.getCompartilharFacebook());
+	public void adicionarCarrinho() {
+		WaitElementFw.visibilityOfElementLocated(driver, By.cssSelector("p[id='quantity_wanted_p'] > input"));
 		informaProdutoAppObject.getQuantidadeFieldText().clear();
 		informaProdutoAppObject.getQuantidadeFieldText().sendKeys("2");
 		informaProdutoAppObject.getCorProdutoButton().click();
 		informaProdutoAppObject.getAddToCartButton().click();
-//		Thread.sleep(2000);
 		WaitElementFw.visibilityOf(driver, informaProdutoAppObject.getProceedToCheckoutButton());
 		informaProdutoAppObject.getProceedToCheckoutButton().click();
 	}

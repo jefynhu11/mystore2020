@@ -24,7 +24,7 @@ public class RequiredTestCase extends BaseTestFw {
 
 	@After
 	public void tearDown() {
-//		driver.quit();
+		driver.quit();
 	}
 	
 	@Test

@@ -6,14 +6,24 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import framework.utils.BaseTestFw;
+import task.AddressesTask;
+import task.AuthenticationTask;
 import task.HomeTask;
+import task.ShippingTask;
+import task.SummaryTask;
 import task.InformaProdutoTask;
+import task.PaymentTask;
 
 public class CompraTestCase extends BaseTestFw{
 
 	private WebDriver driver = getDriver();
 	private HomeTask homeTask = new HomeTask(driver);
-	private InformaProdutoTask informaProdutoTask = new InformaProdutoTask(driver); 
+	private InformaProdutoTask informaProdutoTask = new InformaProdutoTask(driver);
+	private SummaryTask summaryTask = new SummaryTask(driver);
+	private AuthenticationTask authenticantionTask = new AuthenticationTask(driver);
+	private AddressesTask addressTask = new AddressesTask(driver);
+	private ShippingTask shippingTask = new ShippingTask(driver);
+	private PaymentTask paymentTask = new PaymentTask(driver);
 	
 	@Before
 	public void setUp() {
@@ -26,14 +36,14 @@ public class CompraTestCase extends BaseTestFw{
 	}
 	
 	@Test
-	public void test() throws InterruptedException {
+	public void test() {
 		homeTask.obterProduto();
-		Thread.sleep(2000);
 		informaProdutoTask.adicionarCarrinho();
-		Thread.sleep(2000);
-		
-//		String text = informaProdutoTask.adicionaCarrinho();
-//		System.out.println(text);
+		summaryTask.resumoComprar();
+		authenticantionTask.existirConta();
+		addressTask.adicionarMensagem();
+		shippingTask.taxaEntregar();
+		paymentTask.pagamentoBoleto();
 	}
 
 }
