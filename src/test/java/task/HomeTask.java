@@ -1,8 +1,10 @@
 package task;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import appobjetcs.HomeAppObject;
+import framework.utils.WaitElementFw;
 
 public class HomeTask {
 
@@ -19,6 +21,7 @@ public class HomeTask {
 	}
 	
 	public void obterProduto() {
+		WaitElementFw.InvisibilityOf(driver, homeApp.getObterProdutoButton());
 		homeApp.getObterProdutoButton().click();
 	}
 	

@@ -30,4 +30,14 @@ public class WaitElementFw {
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 	
+	public static void InvisibilityOfElementLocated(WebDriver driver, By by) {
+		WebDriverWait wait = new WebDriverWait(driver, TIMEOUT_SEC);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
+	}
+
+	public static void InvisibilityOf(WebDriver driver, WebElement element) {
+		WebDriverWait wait = new WebDriverWait(driver, TIMEOUT_SEC);
+		wait.until(ExpectedConditions.invisibilityOf(element));
+	}
+	
 }

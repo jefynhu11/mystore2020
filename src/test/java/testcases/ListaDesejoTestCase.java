@@ -1,11 +1,14 @@
 package testcases;
 
+import java.io.IOException;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import framework.utils.BaseTestFw;
+import framework.utils.ScreenshotFw;
 import task.AuthenticationTask;
 import task.HomeTask;
 import task.MyAccountTask;
@@ -26,13 +29,14 @@ public class ListaDesejoTestCase extends BaseTestFw{
 	
 	@After
 	public void tearDown() {
-//		driver.quit();
+		ScreenshotFw.takeViewpointShot(driver, "teste");
+		driver.quit();
 	}
 	
 	@Test
 	public void test() {
 		homeTask.login();
-		AuthenticationTask.existirConta();
+		AuthenticationTask.existirConta("testes@testes.com", "testes");
 		myAccountTask.ListaDesejo();
 		myWishlists.listaDesejo();
 		

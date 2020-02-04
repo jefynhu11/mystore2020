@@ -17,16 +17,16 @@ public class AuthenticationTask {
 		this.AuthenticationApp = new AuthenticationAppObject(driver);
 	}
 	
-	public void criarConta() {
+	public void criarConta(String email) {
 		WaitElementFw.visibilityOfElementLocated(driver, By.id("email_create"));
-		AuthenticationApp.getEmailCreateFieldText().sendKeys(GeraGeral.generatorLetraMinuscula(10)+ "@teste.com");
+		AuthenticationApp.getEmailCreateFieldText().sendKeys(email);
 		AuthenticationApp.getCreateAccoutButton().click();
 	}
 	
-	public void existirConta() {
+	public void existirConta(String email, String password) {
 		WaitElementFw.visibilityOfElementLocated(driver, By.id("email"));
-		AuthenticationApp.getEmailFieldText().sendKeys("testes@testes.com");
-		AuthenticationApp.getPasswordFieldText().sendKeys("testes");
+		AuthenticationApp.getEmailFieldText().sendKeys(email);
+		AuthenticationApp.getPasswordFieldText().sendKeys(password);
 		AuthenticationApp.getSignInButton().click();
 	}
 }

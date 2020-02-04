@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import framework.utils.BaseTestFw;
+import framework.utils.ScreenshotFw;
 import task.AddressesTask;
 import task.AuthenticationTask;
 import task.HomeTask;
@@ -32,18 +33,19 @@ public class CompraTestCase extends BaseTestFw{
 
 	@After
 	public void tearDown() {
+		ScreenshotFw.takeViewpointShot(driver, "teste");
 		driver.quit();
 	}
 	
 	@Test
 	public void test() {
 		homeTask.obterProduto();
-		informaProdutoTask.adicionarCarrinho();
-		summaryTask.resumoComprar();
-		authenticantionTask.existirConta();
-		addressTask.adicionarMensagem();
-		shippingTask.taxaEntregar();
-		paymentTask.pagamentoBoleto();
+//		informaProdutoTask.adicionarCarrinho();
+//		summaryTask.resumoComprar();
+//		authenticantionTask.existirConta("testes@testes.com", "testes");
+//		addressTask.adicionarMensagem();
+//		shippingTask.taxaEntregar();
+//		paymentTask.pagamentoBoleto();
 	}
 
 }

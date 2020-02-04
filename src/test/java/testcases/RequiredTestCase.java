@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import framework.utils.BaseTestFw;
+import framework.utils.ScreenshotFw;
+import gerar.GeraGeral;
 import task.AuthenticationTask;
 import task.HomeTask;
 import task.PersonalInformationTask;
@@ -24,13 +26,14 @@ public class RequiredTestCase extends BaseTestFw {
 
 	@After
 	public void tearDown() {
+		ScreenshotFw.takeViewpointShot(driver, "teste");
 		driver.quit();
 	}
 	
 	@Test
 	public void requiredConta() {
 		homeTask.login();
-		authenticationTask.criarConta();
+		authenticationTask.criarConta(GeraGeral.generatorLetraMinuscula(10)+ "@teste.com");
 		personalInformationTask.validarDados();
 	}
 	

@@ -1,18 +1,13 @@
 package framework.utils;
 
-import java.awt.AWTException;
-import java.awt.Rectangle;
-import java.awt.Robot;
-import java.awt.Toolkit;
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
 
-import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.io.FileUtils;
+import org.junit.Rule;
+import org.junit.rules.TestName;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -27,6 +22,9 @@ import ru.yandex.qatools.ashot.shooting.ShootingStrategies;
 public class ScreenshotFw {
 	private static final String PATH_SCREENSHOT = System.getProperty("user.dir") + File.separator + "reports"
 			+ File.separator + "screenshots";
+	
+	@Rule
+	public static TestName testName = new TestName();
 
 	public static MediaEntityModelProvider takeViewpointShot(WebDriver driver, String nomeMetodo) {
 		try {

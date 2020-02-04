@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import framework.utils.BaseTestFw;
+import framework.utils.ScreenshotFw;
 import task.AuthenticationTask;
 import task.HomeTask;
 import task.MyAccountTask;
@@ -27,13 +28,14 @@ public class ObtenhaBoletoTestCase extends BaseTestFw {
 	@After
 	public void tearDown() throws InterruptedException {
 		Thread.sleep(5000);
+		ScreenshotFw.takeViewpointShot(driver, "teste");
 		driver.quit();
 	}
 	
 	@Test
 	public void test() {
 		homeTask.login();
-		authenticationTask.existirConta();
+		authenticationTask.existirConta("testes@testes.com", "testes");
 		myAccountTask.obterBoleto();
 		orderHistoryTask.obterPDF();
 	}
