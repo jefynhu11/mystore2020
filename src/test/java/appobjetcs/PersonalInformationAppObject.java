@@ -80,6 +80,10 @@ public class PersonalInformationAppObject {
 		return driver.findElement(By.id("city"));
 	}
 	
+//	public Select getStateSelect() {
+//		return new Select(driver.findElement(By.id("id_state")));
+//	}
+	
 	public WebElement getStateSelect() {
 		return driver.findElement(By.id("id_state"));
 	}

@@ -21,7 +21,6 @@ public class HomeTask {
 	}
 	
 	public void obterProduto() {
-		WaitElementFw.InvisibilityOf(driver, homeApp.getObterProdutoButton());
 		homeApp.getObterProdutoButton().click();
 	}
 	

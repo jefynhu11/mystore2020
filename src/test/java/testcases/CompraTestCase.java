@@ -40,12 +40,12 @@ public class CompraTestCase extends BaseTestFw{
 	@Test
 	public void test() {
 		homeTask.obterProduto();
-//		informaProdutoTask.adicionarCarrinho();
-//		summaryTask.resumoComprar();
-//		authenticantionTask.existirConta("testes@testes.com", "testes");
-//		addressTask.adicionarMensagem();
-//		shippingTask.taxaEntregar();
-//		paymentTask.pagamentoBoleto();
+		informaProdutoTask.adicionarCarrinho();
+		summaryTask.resumoComprar();
+		authenticantionTask.existirConta("testes@testes.com", "testes");
+		addressTask.adicionarMensagem();
+		shippingTask.taxaEntregar();
+		paymentTask.pagamentoBoleto();
 	}
 
 }
