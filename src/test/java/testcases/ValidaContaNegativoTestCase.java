@@ -12,7 +12,7 @@ import task.AuthenticationTask;
 import task.HomeTask;
 import task.PersonalInformationTask;
 
-public class RequiredTestCase extends BaseTestFw {
+public class ValidaContaNegativoTestCase extends BaseTestFw {
 
 	private WebDriver driver = getDriver();
 	private HomeTask homeTask = new HomeTask(driver);
