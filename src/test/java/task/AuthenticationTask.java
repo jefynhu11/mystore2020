@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import appobjetcs.AuthenticationAppObject;
+import framework.utils.JsExecutorFw;
 import framework.utils.WaitElementFw;
-import gerar.GeraGeral;
 
 public class AuthenticationTask {
 
@@ -25,8 +25,9 @@ public class AuthenticationTask {
 	
 	public void existirConta(String email, String password) {
 		WaitElementFw.visibilityOfElementLocated(driver, By.id("email"));
+		JsExecutorFw.highlight(driver, driver.findElement(By.id("email")));
 		AuthenticationApp.getEmailFieldText().sendKeys(email);
 		AuthenticationApp.getPasswordFieldText().sendKeys(password);
-		AuthenticationApp.getSignInButton().click();
+//		AuthenticationApp.getSignInButton().click();
 	}
 }
