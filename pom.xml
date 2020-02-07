@@ -42,6 +42,12 @@
 	    <artifactId>ashot</artifactId>
 	    <version>1.5.4</version>
 	</dependency>
+
+	<dependency>
+	    <groupId>com.github.javafaker</groupId>
+	    <artifactId>javafaker</artifactId>
+	    <version>1.0.1</version>
+	</dependency>
 	
 </dependencies>
 </project>
