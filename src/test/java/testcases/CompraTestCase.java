@@ -10,10 +10,10 @@ import framework.utils.ScreenshotFw;
 import task.AddressesTask;
 import task.AuthenticationTask;
 import task.HomeTask;
-import task.ShippingTask;
-import task.SummaryTask;
 import task.InformaProdutoTask;
 import task.PaymentTask;
+import task.ShippingTask;
+import task.SummaryTask;
 
 public class CompraTestCase extends BaseTestFw{
 
@@ -34,18 +34,22 @@ public class CompraTestCase extends BaseTestFw{
 	@After
 	public void tearDown() {
 		ScreenshotFw.takeViewpointShot(driver, "teste");
-		driver.quit();
+//		driver.quit();
 	}
 	
+//	JavascriptExecutor js = (JavascriptExecutor) driver;
+//	WebElement element = driver.findElement(By.id("elementosForm:nome"));
+//	js.executeScript("arguments[0].style.border = arguments[1]", element, "solid 4px red");
+	
 	@Test
-	public void test() {
+	public void comprarProduto() {
 		homeTask.obterProduto();
 		informaProdutoTask.adicionarCarrinho();
 		summaryTask.resumoComprar();
-		authenticantionTask.existirConta("testes@testes.com", "testes");
-		addressTask.adicionarMensagem();
-		shippingTask.taxaEntregar();
-		paymentTask.pagamentoBoleto();
+		authenticantionTask.existirConta("testes@testes.com", "teste");
+//		addressTask.adicionarMensagem();
+//		shippingTask.taxaEntregar();
+//		paymentTask.pagamentoBoleto();
 	}
 
 }
