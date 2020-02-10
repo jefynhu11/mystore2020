@@ -3,6 +3,7 @@ package appobjetcs;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class PersonalInformationAppObject {
 	
@@ -36,17 +37,29 @@ public class PersonalInformationAppObject {
 		return driver.findElement(By.id("passwd"));
 	}
 	
-	public WebElement getDaysButton() {
-		return driver.findElement(By.id("days"));
+	public Select getDaySelect() {
+		return new Select(driver.findElement(By.id("days")));
 	}
 	
-	public WebElement getMonthButton() {
-		return driver.findElement(By.id("months"));
+//	public WebElement getDaysButton() {
+//		return driver.findElement(By.id("days"));
+//	}
+	
+	public Select getMonthSelect() {
+		return new Select(driver.findElement(By.id("months")));
 	}
 	
-	public WebElement getYearButton() {
-		return driver.findElement(By.id("years"));
+//	public WebElement getMonthButton() {
+//		return driver.findElement(By.id("months"));
+//	}
+	
+	public Select getYearSelect() {
+		return new Select(driver.findElement(By.id("years")));
 	}
+	
+//	public WebElement getYearButton() {
+//		return driver.findElement(By.id("years"));
+//	}
 	
 	public WebElement getNewsletterCheckBox() {
 		return driver.findElement(By.id("newsletter"));
@@ -80,21 +93,25 @@ public class PersonalInformationAppObject {
 		return driver.findElement(By.id("city"));
 	}
 	
-//	public Select getStateSelect() {
-//		return new Select(driver.findElement(By.id("id_state")));
-//	}
-	
-	public WebElement getStateSelect() {
-		return driver.findElement(By.id("id_state"));
+	public Select getStateSelect() {
+		return new Select(driver.findElement(By.id("id_state")));
 	}
+	
+//	public WebElement getStateSelect() {
+//		return driver.findElement(By.id("id_state"));
+//	}
 	
 	public WebElement getPostalFieldText() {
 		return driver.findElement(By.id("postcode"));
 	}
 	
-	public WebElement getCountrySelect() {
-		return driver.findElement(By.id("id_country"));
+	public Select getCountrySelect() {
+		return new Select(driver.findElement(By.id("id_country")));
 	}
+	
+//	public WebElement getCountrySelect() {
+//		return driver.findElement(By.id("id_country"));
+//	}
 	
 	public WebElement getAdditionalInformationFieldArea() {
 		return driver.findElement(By.id("other"));
@@ -114,6 +131,10 @@ public class PersonalInformationAppObject {
 	
 	public WebElement getRegisterButton() {
 		return driver.findElement(By.id("submitAccount"));
+	}
+	
+	public WebElement getNameAccountText() {
+		return driver.findElement(By.cssSelector("a.account span"));
 	}
 
 }

@@ -26,8 +26,8 @@ public class CriaContaTestCase extends BaseTestFw {
 
 	@After
 	public void tearDown() {
-		ScreenshotFw.takeViewpointShot(driver, "teste");
-		driver.quit();
+//		ScreenshotFw.takeViewpointShot(driver, "teste");
+//		driver.quit();
 	}
 	
 	@Test

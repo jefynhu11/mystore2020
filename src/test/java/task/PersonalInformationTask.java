@@ -5,6 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
+import com.github.javafaker.Faker;
+
 import appobjetcs.PersonalInformationAppObject;
 import framework.utils.WaitElementFw;
 
@@ -12,42 +14,36 @@ public class PersonalInformationTask {
 	
 	private WebDriver driver;
 	private PersonalInformationAppObject personalInformationApp;
+	Faker faker = new Faker();
 	
 	public PersonalInformationTask(WebDriver driver) {
 		this.driver = driver;
 		this.personalInformationApp = new PersonalInformationAppObject(driver);
 	}
+
+	String nome = faker.name().firstName();
+	String sobrenome = faker.name().lastName();
+	String senha = faker.internet().password();
+	String address = faker.address().fullAddress();
+	String city = faker.address().city();
+	String MobilePhone = faker.phoneNumber().cellPhone();
 	
 	public void preenderDados() {
-		WaitElementFw.visibilityOfElementLocated(driver, By.id("uniform-id_gender1"));
-		personalInformationApp.getMrRadio().click();
-		personalInformationApp.getFirstNameFieldText().sendKeys("Jeferson");
-		personalInformationApp.getLastNameFieldText().sendKeys("Lopes Eugenio");
-		personalInformationApp.getPasswordFieldText().sendKeys("testes");
-		Select day = new Select(personalInformationApp.getDaysButton());
-		day.selectByValue("15");
-		Select month = new Select(personalInformationApp.getMonthButton());
-		month.selectByValue("11");
-		Select year = new Select(personalInformationApp.getYearButton());
-		year.selectByValue("1992");
-		personalInformationApp.getNewsletterCheckBox().click();
-		personalInformationApp.getReceiveCheckBox().click();
-		personalInformationApp.getCompanyFieldText().sendKeys("fulano");
-		personalInformationApp.getAddressFielText().sendKeys("Assis Brasil");
-		personalInformationApp.getAddress2FielText().sendKeys("Farrapos");
-		personalInformationApp.getCityFieldText().sendKeys("Porto Alegre");
-		Select state = new Select(personalInformationApp.getStateSelect());
-		state.selectByVisibleText("Colorado");
+		WaitElementFw.visibilityOfElementLocated(driver, By.id("customer_firstname"));
+		personalInformationApp.getFirstNameFieldText().sendKeys(nome);
+		personalInformationApp.getLastNameFieldText().sendKeys(sobrenome);
+		personalInformationApp.getPasswordFieldText().sendKeys(senha);
+		personalInformationApp.getAddressFielText().sendKeys(address);
+		personalInformationApp.getCityFieldText().sendKeys(city);
+		personalInformationApp.getStateSelect().selectByVisibleText("Colorado");
 		personalInformationApp.getPostalFieldText().sendKeys("00000");
-		Select country = new Select(personalInformationApp.getCountrySelect());
-//		country.selectByVisibleText("-");
-		country.selectByValue("21");
+		personalInformationApp.getCountrySelect().selectByValue("21");
 		personalInformationApp.getAdditionalInformationFieldArea().sendKeys("Mensagem de teste");
-		personalInformationApp.getPhoneFieldText().sendKeys("338645312");
-		personalInformationApp.getMobilePhoneFieldText().sendKeys("978654123");
+		personalInformationApp.getMobilePhoneFieldText().sendKeys(MobilePhone);
 		personalInformationApp.getAssignAddressFieldText().clear();
 		personalInformationApp.getAssignAddressFieldText().sendKeys("teste@teste.com");
 		personalInformationApp.getRegisterButton().click();
+		Assert.assertEquals(nome + " " + sobrenome, personalInformationApp.getNameAccountText().getText());
 	}
 
 	public void validarDados() {
@@ -63,12 +59,15 @@ public class PersonalInformationTask {
 		personalInformationApp.getPasswordFieldText().sendKeys("testes");
 		Assert.assertEquals("testes", personalInformationApp.getPasswordFieldText().getAttribute("value"));
 		
-		Select day = new Select(personalInformationApp.getDaysButton());
-		day.selectByValue("15");
-		Select month = new Select(personalInformationApp.getMonthButton());
-		month.selectByValue("11");
-		Select year = new Select(personalInformationApp.getYearButton());
-		year.selectByValue("1992");
+		personalInformationApp.getDaySelect().selectByValue("15");
+//		Select day = new Select(personalInformationApp.getDaysButton());
+//		day.selectByValue("15");
+		personalInformationApp.getMonthSelect().selectByValue("11");
+//		Select month = new Select(personalInformationApp.getMonthButton());
+//		month.selectByValue("11");
+		personalInformationApp.getYearSelect().selectByValue("1992");
+//		Select year = new Select(personalInformationApp.getYearButton());
+//		year.selectByValue("1992");
 		
 //		personalInformationApp.getNewsletterCheckBox().click();
 //		personalInformationApp.getReceiveCheckBox().click();
@@ -86,17 +85,19 @@ public class PersonalInformationTask {
 		personalInformationApp.getCityFieldText().sendKeys("Porto Alegre");
 		Assert.assertEquals("Porto Alegre", personalInformationApp.getCityFieldText().getAttribute("value"));
 		
-		Select state = new Select(personalInformationApp.getStateSelect());
-		state.selectByValue("6");
-		Assert.assertEquals("6", personalInformationApp.getStateSelect().getAttribute("value"));
+		personalInformationApp.getStateSelect().selectByValue("6");
+//		Select state = new Select(personalInformationApp.getStateSelect());
+//		state.selectByValue("6");
+//		Assert.assertEquals("6", personalInformationApp.getStateSelect().getAttribute("value"));
 		
 		personalInformationApp.getPostalFieldText().sendKeys("00000");
 		Assert.assertEquals("00000", personalInformationApp.getPostalFieldText().getAttribute("value"));
 		
-		Select country = new Select(personalInformationApp.getCountrySelect());
+		personalInformationApp.getCountrySelect().selectByValue("21");
+//		Select country = new Select(personalInformationApp.getCountrySelect());
 //		country.selectByVisibleText("-");
-		country.selectByValue("21");
-		Assert.assertEquals("21", personalInformationApp.getCountrySelect().getAttribute("value"));
+//		country.selectByValue("21");
+//		Assert.assertEquals("21", personalInformationApp.getCountrySelect().getAttribute("value"));
 		
 //		personalInformationApp.getAdditionalInformationFieldArea().sendKeys("Mensagem de teste");
 //		personalInformationApp.getPhoneFieldText().sendKeys("338645312");
