@@ -1,8 +1,11 @@
 package task;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import com.github.javafaker.Faker;
@@ -30,6 +33,31 @@ public class PersonalInformationTask {
 	
 	public void preenderDados() {
 		WaitElementFw.visibilityOfElementLocated(driver, By.id("customer_firstname"));
+//		ArrayList<DadosCSV> informaDados = new ArrayList<DadosCSV>();
+//		informaDados.add(new DadosCSV(personalInformationApp.getFirstNameFieldText().sendKeys(nome),
+//										personalInformationApp.getLastNameFieldText().sendKeys(sobrenome),
+//											personalInformationApp.getPasswordFieldText().sendKeys(senha)));
+		try {
+//			FileWriter fileW = new FileWriter("dados.csv");
+//			BufferedWriter buff = new BufferedWriter(fileW);
+			PrintWriter pw = new PrintWriter("C:\\Users\\jeferson.lopes\\Desktop\\dados.csv");
+			
+//			buff.write("nome: " + nome);
+//			buff.newLine();
+//			buff.write("sobrenome: " + sobrenome);
+//			buff.newLine();
+//			buff.write("senha: " + senha);
+//			buff.close();
+			pw.println("nome: " + nome);
+			pw.println("sobrenome: " + sobrenome);
+			pw.println("senha: " + senha);
+			pw.flush();
+			pw.close();
+		} catch (FileNotFoundException ex) {
+			ex.printStackTrace();			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		personalInformationApp.getFirstNameFieldText().sendKeys(nome);
 		personalInformationApp.getLastNameFieldText().sendKeys(sobrenome);
 		personalInformationApp.getPasswordFieldText().sendKeys(senha);
