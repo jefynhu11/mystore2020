@@ -31,12 +31,6 @@ public class CompraTestCase extends BaseTestFw{
 		this.driver.get("http://automationpractice.com");
 	}
 
-	@After
-	public void tearDown() {
-		ScreenshotFw.takeViewpointShot(driver, "teste");
-//		driver.quit();
-	}
-	
 //	JavascriptExecutor js = (JavascriptExecutor) driver;
 //	WebElement element = driver.findElement(By.id("elementosForm:nome"));
 //	js.executeScript("arguments[0].style.border = arguments[1]", element, "solid 4px red");
@@ -46,7 +40,7 @@ public class CompraTestCase extends BaseTestFw{
 		homeTask.obterProduto();
 		informaProdutoTask.adicionarCarrinho();
 		summaryTask.resumoComprar();
-		authenticantionTask.existirConta("testes@testes.com", "teste");
+		authenticantionTask.alreadyRegistered("testes@testes.com", "teste");
 //		addressTask.adicionarMensagem();
 //		shippingTask.taxaEntregar();
 //		paymentTask.pagamentoBoleto();
