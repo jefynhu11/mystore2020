@@ -1,12 +1,13 @@
 package task;
 
+import static org.junit.Assert.assertEquals;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 import com.github.javafaker.Faker;
 
@@ -33,31 +34,6 @@ public class PersonalInformationTask {
 	
 	public void preenderDados() {
 		WaitElementFw.visibilityOfElementLocated(driver, By.id("customer_firstname"));
-//		ArrayList<DadosCSV> informaDados = new ArrayList<DadosCSV>();
-//		informaDados.add(new DadosCSV(personalInformationApp.getFirstNameFieldText().sendKeys(nome),
-//										personalInformationApp.getLastNameFieldText().sendKeys(sobrenome),
-//											personalInformationApp.getPasswordFieldText().sendKeys(senha)));
-		try {
-//			FileWriter fileW = new FileWriter("dados.csv");
-//			BufferedWriter buff = new BufferedWriter(fileW);
-			PrintWriter pw = new PrintWriter("C:\\Users\\jeferson.lopes\\Desktop\\dados.csv");
-			
-//			buff.write("nome: " + nome);
-//			buff.newLine();
-//			buff.write("sobrenome: " + sobrenome);
-//			buff.newLine();
-//			buff.write("senha: " + senha);
-//			buff.close();
-			pw.println("nome: " + nome);
-			pw.println("sobrenome: " + sobrenome);
-			pw.println("senha: " + senha);
-			pw.flush();
-			pw.close();
-		} catch (FileNotFoundException ex) {
-			ex.printStackTrace();			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		personalInformationApp.getFirstNameFieldText().sendKeys(nome);
 		personalInformationApp.getLastNameFieldText().sendKeys(sobrenome);
 		personalInformationApp.getPasswordFieldText().sendKeys(senha);
@@ -71,7 +47,7 @@ public class PersonalInformationTask {
 		personalInformationApp.getAssignAddressFieldText().clear();
 		personalInformationApp.getAssignAddressFieldText().sendKeys("teste@teste.com");
 		personalInformationApp.getRegisterButton().click();
-		Assert.assertEquals(nome + " " + sobrenome, personalInformationApp.getNameAccountText().getText());
+		assertEquals(nome+ " " + sobrenome, personalInformationApp.getNameAccountText().getText());
 	}
 
 	public void validarDados() {
@@ -79,13 +55,13 @@ public class PersonalInformationTask {
 		personalInformationApp.getMrRadio().click();
 		
 		personalInformationApp.getFirstNameFieldText().sendKeys("Jeferson");
-		Assert.assertEquals("Jeferson", personalInformationApp.getFirstNameFieldText().getAttribute("value"));
+		assertEquals("Jeferson", personalInformationApp.getFirstNameFieldText().getAttribute("value"));
 		
 		personalInformationApp.getLastNameFieldText().sendKeys("Lopes Eugenio");
-		Assert.assertEquals("Lopes Eugenio", personalInformationApp.getLastNameFieldText().getAttribute("value"));
+		assertEquals("Lopes Eugenio", personalInformationApp.getLastNameFieldText().getAttribute("value"));
 		
 		personalInformationApp.getPasswordFieldText().sendKeys("testes");
-		Assert.assertEquals("testes", personalInformationApp.getPasswordFieldText().getAttribute("value"));
+		assertEquals("testes", personalInformationApp.getPasswordFieldText().getAttribute("value"));
 		
 		personalInformationApp.getDaySelect().selectByValue("15");
 //		Select day = new Select(personalInformationApp.getDaysButton());
@@ -100,18 +76,18 @@ public class PersonalInformationTask {
 //		personalInformationApp.getNewsletterCheckBox().click();
 //		personalInformationApp.getReceiveCheckBox().click();
 		
-		Assert.assertEquals(personalInformationApp.getFirstNameFieldText().getAttribute("value"), personalInformationApp.getNameAddressFieldText().getAttribute("value"));
-		Assert.assertEquals(personalInformationApp.getLastNameFieldText().getAttribute("value"), personalInformationApp.getLastNameAddressFieldText().getAttribute("value"));
+		assertEquals(personalInformationApp.getFirstNameFieldText().getAttribute("value"), personalInformationApp.getNameAddressFieldText().getAttribute("value"));
+		assertEquals(personalInformationApp.getLastNameFieldText().getAttribute("value"), personalInformationApp.getLastNameAddressFieldText().getAttribute("value"));
 		
 //		personalInformationApp.getCompanyFieldText().sendKeys("fulano");
 		
 		personalInformationApp.getAddressFielText().sendKeys("Assis Brasil");
-		Assert.assertEquals("Assis Brasil", personalInformationApp.getAddressFielText().getAttribute("value"));
+		assertEquals("Assis Brasil", personalInformationApp.getAddressFielText().getAttribute("value"));
 		
 //		personalInformationApp.getAddress2FielText().sendKeys("Farrapos");
 		
 		personalInformationApp.getCityFieldText().sendKeys("Porto Alegre");
-		Assert.assertEquals("Porto Alegre", personalInformationApp.getCityFieldText().getAttribute("value"));
+		assertEquals("Porto Alegre", personalInformationApp.getCityFieldText().getAttribute("value"));
 		
 		personalInformationApp.getStateSelect().selectByValue("6");
 //		Select state = new Select(personalInformationApp.getStateSelect());
@@ -119,7 +95,7 @@ public class PersonalInformationTask {
 //		Assert.assertEquals("6", personalInformationApp.getStateSelect().getAttribute("value"));
 		
 		personalInformationApp.getPostalFieldText().sendKeys("00000");
-		Assert.assertEquals("00000", personalInformationApp.getPostalFieldText().getAttribute("value"));
+		assertEquals("00000", personalInformationApp.getPostalFieldText().getAttribute("value"));
 		
 		personalInformationApp.getCountrySelect().selectByValue("21");
 //		Select country = new Select(personalInformationApp.getCountrySelect());
@@ -131,11 +107,11 @@ public class PersonalInformationTask {
 //		personalInformationApp.getPhoneFieldText().sendKeys("338645312");
 		
 		personalInformationApp.getMobilePhoneFieldText().sendKeys("978654123");
-		Assert.assertEquals("978654123", personalInformationApp.getMobilePhoneFieldText().getAttribute("value"));
+		assertEquals("978654123", personalInformationApp.getMobilePhoneFieldText().getAttribute("value"));
 		
 		personalInformationApp.getAssignAddressFieldText().clear();
 		personalInformationApp.getAssignAddressFieldText().sendKeys("teste@teste.com");
-		Assert.assertEquals("teste@teste.com", personalInformationApp.getAssignAddressFieldText().getAttribute("value"));
+		assertEquals("teste@teste.com", personalInformationApp.getAssignAddressFieldText().getAttribute("value"));
 		
 		personalInformationApp.getRegisterButton().click();
 	}
