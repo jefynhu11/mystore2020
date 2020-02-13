@@ -25,9 +25,8 @@ public class AuthenticationTask {
 	
 	public void alreadyRegistered(String email, String password) {
 		WaitElementFw.visibilityOfElementLocated(driver, By.id("email"));
-		JsExecutorFw.highlight(driver, driver.findElement(By.id("email")));
 		AuthenticationApp.getEmailFieldText().sendKeys(email);
 		AuthenticationApp.getPasswordFieldText().sendKeys(password);
-//		AuthenticationApp.getSignInButton().click();
+		AuthenticationApp.getSignInButton().click();
 	}
 }
