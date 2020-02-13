@@ -12,8 +12,8 @@ public class SummaryTask {
 		this.driver = driver;
 		this.summaryTask = new SummaryAppObject(driver);
 	}
-	
-	public void resumoComprar() {
+
+	public void shoppingCartSummary() {
 		summaryTask.getMenosProdutoButton().click();
 		summaryTask.getProceedToCheckoutButton().click();
 	}
