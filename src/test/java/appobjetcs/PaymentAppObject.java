@@ -28,4 +28,11 @@ public class PaymentAppObject {
 		return driver.findElement(By.cssSelector("button.button-medium"));
 	}
 
+	public WebElement getBoletoMensagemSuccessText() {
+		return driver.findElement(By.cssSelector("#center_column p.alert"));
+	}
+
+	public WebElement getCreditoMensagemSuccessText() {
+		return driver.findElement(By.cssSelector("#center_column h1"));
+	}
 }
