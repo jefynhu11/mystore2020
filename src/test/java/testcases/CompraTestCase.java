@@ -46,7 +46,7 @@ public class CompraTestCase extends BaseTestFw{
 		authenticantionTask.alreadyRegistered(email, senha);
 		addressTask.adicionarMensagem();
 		shippingTask.taxaEntregar();
-		paymentTask.pagamentoBoleto();
+		paymentTask.pagamentoCredito();
 	}
 
 }
