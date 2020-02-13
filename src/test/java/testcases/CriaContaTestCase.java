@@ -1,16 +1,14 @@
 package testcases;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 
 import framework.utils.BaseTestFw;
-import framework.utils.ScreenshotFw;
 import gerar.GeraGeral;
+import task.AuthenticationTask;
 import task.HomeTask;
 import task.PersonalInformationTask;
-import task.AuthenticationTask;
 
 public class CriaContaTestCase extends BaseTestFw {
 
