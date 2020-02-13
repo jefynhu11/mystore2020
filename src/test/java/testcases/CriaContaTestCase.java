@@ -24,15 +24,9 @@ public class CriaContaTestCase extends BaseTestFw {
 		this.driver.get("http://automationpractice.com");
 	}
 
-	@After
-	public void tearDown() {
-//		ScreenshotFw.takeViewpointShot(driver, "teste");
-//		driver.quit();
-	}
-	
 	@Test
 	public void criarConta() {
-		homeTask.login();
+		homeTask.HomeAccessLogin();
 		authenticationTask.criarConta(GeraGeral.generatorLetraMinuscula(10)+ "@teste.com");
 		personalInformationTask.preenderDados();
 	}
