@@ -27,7 +27,7 @@ public class ObtenhaBoletoTestCase extends BaseTestFw {
 	
 	@Test
 	public void test() {
-		homeTask.HomeAccessLogin();
+		homeTask.homeAccessLogin();
 		authenticationTask.alreadyRegistered("testes@testes.com", "testes");
 		myAccountTask.obterBoleto();
 		orderHistoryTask.obterPDF();
