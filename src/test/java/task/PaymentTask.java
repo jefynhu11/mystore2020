@@ -21,6 +21,6 @@ public class PaymentTask {
 	
 	public void pagamentoBoleto() {
 		paymentApp.getPayByCheckButton().click();
-		paymentApp.getIConfirmMyOrderButton().click();
+//		paymentApp.getIConfirmMyOrderButton().click();
 	}
 }
