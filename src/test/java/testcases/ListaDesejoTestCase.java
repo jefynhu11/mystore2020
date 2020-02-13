@@ -18,7 +18,7 @@ public class ListaDesejoTestCase extends BaseTestFw{
 
 	private WebDriver driver = getDriver();
 	private HomeTask homeTask = new HomeTask(driver);
-	private AuthenticationTask AuthenticationTask = new AuthenticationTask(driver);
+	private AuthenticationTask authenticationTask = new AuthenticationTask(driver);
 	private MyAccountTask myAccountTask = new MyAccountTask(driver);
 	private MyWishlistsTask myWishlists = new MyWishlistsTask(driver);
 	
@@ -29,8 +29,8 @@ public class ListaDesejoTestCase extends BaseTestFw{
 	
 	@Test
 	public void test() {
-		homeTask.HomeAccessLogin();
-		AuthenticationTask.alreadyRegistered("testes@testes.com", "testes");
+		homeTask.homeAccessLogin();
+		authenticationTask.alreadyRegistered("testes@testes.com", "testes");
 		myAccountTask.ListaDesejo();
 		myWishlists.listaDesejo();
 		
