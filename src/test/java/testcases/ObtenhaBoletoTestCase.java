@@ -25,17 +25,10 @@ public class ObtenhaBoletoTestCase extends BaseTestFw {
 		this.driver.get("http://automationpractice.com");
 	}
 	
-	@After
-	public void tearDown() throws InterruptedException {
-		Thread.sleep(5000);
-		ScreenshotFw.takeViewpointShot(driver, "teste");
-		driver.quit();
-	}
-	
 	@Test
 	public void test() {
-		homeTask.login();
-		authenticationTask.existirConta("testes@testes.com", "testes");
+		homeTask.HomeAccessLogin();
+		authenticationTask.alreadyRegistered("testes@testes.com", "testes");
 		myAccountTask.obterBoleto();
 		orderHistoryTask.obterPDF();
 	}
