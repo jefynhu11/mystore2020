@@ -26,7 +26,7 @@ public class CriaContaTestCase extends BaseTestFw {
 
 	@Test
 	public void criarConta() {
-		homeTask.HomeAccessLogin();
+		homeTask.homeAccessLogin();
 		authenticationTask.criarConta(GeraGeral.generatorLetraMinuscula(10)+ "@teste.com");
 		personalInformationTask.preenderDados();
 	}
