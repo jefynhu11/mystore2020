@@ -3,15 +3,19 @@ package testcases;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import framework.utils.BaseTestFw;
 import framework.utils.ScreenshotFw;
 import gerar.GeraGeral;
+import junitparams.FileParameters;
+import junitparams.JUnitParamsRunner;
 import task.AuthenticationTask;
 import task.HomeTask;
 import task.PersonalInformationTask;
 
+@RunWith(JUnitParamsRunner.class)
 public class ValidaContaNegativoTestCase extends BaseTestFw {
 
 	private WebDriver driver = getDriver();
@@ -21,20 +25,16 @@ public class ValidaContaNegativoTestCase extends BaseTestFw {
 	
 	@Before
 	public void setUp() {
-		this.driver.get("http://automationpractice.com");
+		this.driver.get("http://automationpractice.com/index.php?controller=authentication&back=my-account");
 	}
 
-	@After
-	public void tearDown() {
-		ScreenshotFw.takeViewpointShot(driver, "teste");
-		driver.quit();
-	}
-	
 	@Test
-	public void requiredConta() {
-		homeTask.login();
-		authenticationTask.criarConta(GeraGeral.generatorLetraMinuscula(10)+ "@teste.com");
-		personalInformationTask.validarDados();
+	@FileParameters("src/test/resources/dados.csv")
+	public void requiredConta(String email, String password) throws InterruptedException {
+//		homeTask.login();
+		authenticationTask.alreadyRegistered(email, password);
+//		personalInformationTask.validarDados();
+		Thread.sleep(3000);
 	}
 	
 }
