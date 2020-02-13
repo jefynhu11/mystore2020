@@ -23,7 +23,7 @@ public class AuthenticationTask {
 		AuthenticationApp.getCreateAccoutButton().click();
 	}
 	
-	public void existirConta(String email, String password) {
+	public void alreadyRegistered(String email, String password) {
 		WaitElementFw.visibilityOfElementLocated(driver, By.id("email"));
 		JsExecutorFw.highlight(driver, driver.findElement(By.id("email")));
 		AuthenticationApp.getEmailFieldText().sendKeys(email);
