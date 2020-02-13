@@ -27,16 +27,10 @@ public class ListaDesejoTestCase extends BaseTestFw{
 		this.driver.get("http://automationpractice.com");
 	}
 	
-	@After
-	public void tearDown() {
-		ScreenshotFw.takeViewpointShot(driver, "teste");
-		driver.quit();
-	}
-	
 	@Test
 	public void test() {
-		homeTask.login();
-		AuthenticationTask.existirConta("testes@testes.com", "testes");
+		homeTask.HomeAccessLogin();
+		AuthenticationTask.alreadyRegistered("testes@testes.com", "testes");
 		myAccountTask.ListaDesejo();
 		myWishlists.listaDesejo();
 		
