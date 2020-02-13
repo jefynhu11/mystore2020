@@ -1,19 +1,19 @@
 package testcases;
 
-import java.io.IOException;
-
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import framework.utils.BaseTestFw;
-import framework.utils.ScreenshotFw;
+import junitparams.FileParameters;
+import junitparams.JUnitParamsRunner;
 import task.AuthenticationTask;
 import task.HomeTask;
 import task.MyAccountTask;
 import task.MyWishlistsTask;
 
+@RunWith(JUnitParamsRunner.class)
 public class ListaDesejoTestCase extends BaseTestFw{
 
 	private WebDriver driver = getDriver();
@@ -28,9 +28,10 @@ public class ListaDesejoTestCase extends BaseTestFw{
 	}
 	
 	@Test
-	public void test() {
+	@FileParameters("src/test/resources/dados.csv")
+	public void listaDesejo(String email, String senha) {
 		homeTask.homeAccessLogin();
-		authenticationTask.alreadyRegistered("testes@testes.com", "testes");
+		authenticationTask.alreadyRegistered(email, senha);
 		myAccountTask.ListaDesejo();
 		myWishlists.listaDesejo();
 		
