@@ -1,12 +1,13 @@
 package testcases;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import framework.utils.BaseTestFw;
-import framework.utils.ScreenshotFw;
+import junitparams.FileParameters;
+import junitparams.JUnitParamsRunner;
 import task.AddressesTask;
 import task.AuthenticationTask;
 import task.HomeTask;
@@ -15,6 +16,7 @@ import task.PaymentTask;
 import task.ShippingTask;
 import task.SummaryTask;
 
+@RunWith(JUnitParamsRunner.class)
 public class CompraTestCase extends BaseTestFw{
 
 	private WebDriver driver = getDriver();
@@ -36,14 +38,15 @@ public class CompraTestCase extends BaseTestFw{
 //	js.executeScript("arguments[0].style.border = arguments[1]", element, "solid 4px red");
 	
 	@Test
-	public void comprarProduto() {
+	@FileParameters("src/test/resources/dados.csv")
+	public void comprarProduto(String email, String senha) {
 		homeTask.obterProduto();
 		informaProdutoTask.adicionarCarrinho();
-		summaryTask.resumoComprar();
-		authenticantionTask.alreadyRegistered("testes@testes.com", "teste");
-//		addressTask.adicionarMensagem();
-//		shippingTask.taxaEntregar();
-//		paymentTask.pagamentoBoleto();
+		summaryTask.shoppingCartSummary();
+		authenticantionTask.alreadyRegistered(email, senha);
+		addressTask.adicionarMensagem();
+		shippingTask.taxaEntregar();
+		paymentTask.pagamentoBoleto();
 	}
 
 }
