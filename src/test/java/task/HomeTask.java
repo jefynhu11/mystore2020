@@ -16,7 +16,7 @@ public class HomeTask {
 		this.homeApp = new HomeAppObject(driver);
 	}
 
-	public void HomeAccessLogin() {
+	public void homeAccessLogin() {
 		homeApp.getLoginButton().click();
 	}
 	
