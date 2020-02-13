@@ -22,9 +22,6 @@ public class HomeAppObject {
 	}
 	
 	public WebElement getObterProdutoButton() {
-//		return driver.findElement(By.cssSelector("#homefeatured li.ajax_block_product div div div a[title='Blouse']"));
 		return driver.findElement(By.cssSelector("#homefeatured li.ajax_block_product a.product_img_link img[title='Blouse']"));
-//		return driver.findElement(By.cssSelector("#homefeatured li:nth-child(2) div.left-block"));
-//		return driver.findElement(By.cssSelector("#homefeatured li:nth-child(2) div.left-block a.quick-view"));
 	}
 }
