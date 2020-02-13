@@ -1,17 +1,19 @@
 package testcases;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 import framework.utils.BaseTestFw;
-import framework.utils.ScreenshotFw;
+import junitparams.FileParameters;
+import junitparams.JUnitParamsRunner;
 import task.AuthenticationTask;
 import task.HomeTask;
 import task.MyAccountTask;
 import task.ObtenhaHistoryTask;
 
+@RunWith(JUnitParamsRunner.class)
 public class ObtenhaBoletoTestCase extends BaseTestFw {
 
 	private WebDriver driver = getDriver();
@@ -26,9 +28,10 @@ public class ObtenhaBoletoTestCase extends BaseTestFw {
 	}
 	
 	@Test
-	public void test() {
+	@FileParameters("src/test/resources/dados.csv")
+	public void obterBoleto(String email, String senha) {
 		homeTask.homeAccessLogin();
-		authenticationTask.alreadyRegistered("testes@testes.com", "testes");
+		authenticationTask.alreadyRegistered(email, senha);
 		myAccountTask.obterBoleto();
 		orderHistoryTask.obterPDF();
 	}
