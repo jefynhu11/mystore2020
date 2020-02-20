@@ -1,13 +1,12 @@
 package testcases;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.WebDriver;
 
 import framework.utils.BaseTestFw;
-import junitparams.FileParameters;
-import junitparams.JUnitParamsRunner;
 import task.AddressesTask;
 import task.AuthenticationTask;
 import task.HomeTask;
@@ -16,7 +15,7 @@ import task.PaymentTask;
 import task.ShippingTask;
 import task.SummaryTask;
 
-@RunWith(JUnitParamsRunner.class)
+//@RunWith(JUnitParamsRunner.class)
 public class CompraTestCase extends BaseTestFw{
 
 	private WebDriver driver = getDriver();
@@ -28,7 +27,7 @@ public class CompraTestCase extends BaseTestFw{
 	private ShippingTask shippingTask = new ShippingTask(driver);
 	private PaymentTask paymentTask = new PaymentTask(driver);
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		this.driver.get("http://automationpractice.com");
 	}
@@ -37,8 +36,8 @@ public class CompraTestCase extends BaseTestFw{
 //	WebElement element = driver.findElement(By.id("elementosForm:nome"));
 //	js.executeScript("arguments[0].style.border = arguments[1]", element, "solid 4px red");
 	
-	@Test
-	@FileParameters("src/test/resources/dados.csv")
+	@ParameterizedTest
+	@CsvFileSource(resources = "/dados.csv")
 	public void comprarProduto(String email, String senha) {
 		homeTask.obterProduto();
 		informaProdutoTask.adicionarCarrinho();
