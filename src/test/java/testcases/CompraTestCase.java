@@ -1,7 +1,6 @@
 package testcases;
 
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +14,6 @@ import task.PaymentTask;
 import task.ShippingTask;
 import task.SummaryTask;
 
-//@RunWith(JUnitParamsRunner.class)
 public class CompraTestCase extends BaseTestFw{
 
 	private WebDriver driver = getDriver();
