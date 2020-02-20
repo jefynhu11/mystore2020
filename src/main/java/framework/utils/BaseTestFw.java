@@ -3,7 +3,7 @@ package framework.utils;
 import static framework.utils.DriverManagerFactoryFw.quitDriver;
 import static framework.utils.DriverManagerFactoryFw.setDriver;
 
-import org.junit.After;
+import org.junit.jupiter.api.AfterAll;
 import org.openqa.selenium.WebDriver;
 
 public class BaseTestFw {
@@ -15,8 +15,8 @@ public class BaseTestFw {
 		return driver;
 	}
 	
-	@After
-	public void tearDown() {
+	@AfterAll
+	public static void tearDown() {
 		quitDriver();
 	}
 }
