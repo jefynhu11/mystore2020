@@ -1,7 +1,7 @@
 package testcases;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
 
 import framework.utils.BaseTestFw;
@@ -17,11 +17,11 @@ public class CriaContaTestCase extends BaseTestFw {
 	private AuthenticationTask authenticationTask = new AuthenticationTask(driver);
 	private PersonalInformationTask personalInformationTask = new PersonalInformationTask(driver);
 	
-	@Before
+	@BeforeEach
 	public void setUp() {
 		this.driver.get("http://automationpractice.com");
 	}
-
+ 
 	@Test
 	public void criarConta() {
 		homeTask.homeAccessLogin();
